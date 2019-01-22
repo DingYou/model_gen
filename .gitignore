@@ -1,0 +1,9 @@
+### macOS ###
+.DS_Store
+**/.DS_Store
+
+### vim ###
+*.swp
+
+### pythoncache ###
+**/__pycache__/
