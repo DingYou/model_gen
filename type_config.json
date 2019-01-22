@@ -1,0 +1,21 @@
+{
+  "bigint": "Long",
+  "int": "Integer",
+  "tinyint": "Integer",
+  "varchar": "String",
+  "char": "String",
+  "text": "String",
+  "longtext": "String",
+  "date": "LocalDate",
+  "datetime": "LocalDateTime",
+  "timestamp": "LocalDateTime",
+  "time": "LocalTime",
+  "java_full_path": {
+    "Long": "",
+    "Integer": "",
+    "String": "",
+    "LocalDate": "java.time.LocalDate",
+    "LocalDateTime": "java.time.LocalDateTime",
+    "LocalTime": "java.time.LocalTime"
+  }
+}

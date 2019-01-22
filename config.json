@@ -1,0 +1,27 @@
+{
+  "table": {
+    "host": "127.0.0.1",
+    "port": 3306,
+    "user": "test",
+    "password": "test123",
+    "db": "test",
+    "table_name": "wx_info"
+  },
+
+  "base_java_folder": "main/java",
+  "base_mapper_folder": "main/resources/mapper",
+
+  "package": {
+    "base_package": "com.ding.crm2.admin",
+    "application_package": "com.ding.crm2"
+  },
+
+  "base_class": {
+    "base_model": "com.ding.crm2.common.model.BaseModel",
+    "base_dao": "com.ding.crm2.common.dao.BaseDao",
+    "base_db_manager": "com.ding.crm2.common.manager.base.BaseDBManager",
+    "base_db_manager_impl": "com.ding.crm2.common.manager.base.impl.BaseDBManagerImpl"
+  },
+
+  "base_model_fields": ["id","status","gmtCreate","gmtModify"]
+}
