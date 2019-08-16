@@ -1,3 +1,5 @@
+# coding=utf-8
+
 import pymysql
 import underline_formatter as formatter
 import os
