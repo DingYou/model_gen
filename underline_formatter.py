@@ -1,3 +1,5 @@
+# coding=utf-8
+
 def camel_to_underline(camel_format):
     """
         驼峰命名格式转下划线命名格式
