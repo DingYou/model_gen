@@ -10,10 +10,13 @@
   "datetime": "LocalDateTime",
   "timestamp": "LocalDateTime",
   "time": "LocalTime",
+  "decimal": "Double",
+  "year": "Integer",
   "java_full_path": {
     "Long": "",
     "Integer": "",
     "String": "",
+    "Double": "",
     "LocalDate": "java.time.LocalDate",
     "LocalDateTime": "java.time.LocalDateTime",
     "LocalTime": "java.time.LocalTime"
