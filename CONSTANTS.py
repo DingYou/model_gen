@@ -26,10 +26,14 @@ JAVA_FULL_PATH_KEY = 'java_full_path'
 BASE_MODEL_KEY = 'base_model'
 # 配置中BaseDao全路径的key
 BASE_DAO_KEY = 'base_dao'
-# 配置中baseModel全路径的key
+# 配置中baseManager全路径的key
 BASE_DB_MANAGER_KEY = 'base_db_manager'
-# 配置中baseModel全路径的key
+# 配置中baseManagerImpl全路径的key
 BASE_DB_MANAGER_IMPL_KEY = 'base_db_manager_impl'
+# 配置中baseService全路径的key
+BASE_DB_SERVICE_KEY = 'base_db_service'
+# 配置中baseServiceImpl全路径的key
+BASE_DB_SERVICE_IMPL_KEY = 'base_db_service_impl'
 # 配置中java文件文件夹的key
 BASE_JAVA_FOLDER_KEY = 'base_java_folder'
 # 配置中mapper文件文件夹的key

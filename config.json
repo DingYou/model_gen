@@ -20,7 +20,9 @@
     "base_model": "com.ding.crm2.common.model.BaseModel",
     "base_dao": "com.ding.crm2.common.dao.BaseDao",
     "base_db_manager": "com.ding.crm2.common.manager.base.BaseDBManager",
-    "base_db_manager_impl": "com.ding.crm2.common.manager.base.impl.BaseDBManagerImpl"
+    "base_db_manager_impl": "com.ding.crm2.common.manager.base.impl.BaseDBManagerImpl",
+    "base_db_service": "",
+    "base_db_service_impl": ""
   },
 
   "base_model_fields": ["id","status","gmtCreate","gmtModify"]
