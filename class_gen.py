@@ -171,7 +171,7 @@ if __name__ == '__main__':
         dao_file.write(dao_class)
 
     # 生成Dao.xml
-    print('生成.xml...')
+    print('生成xml...')
     xml_body = CONSTANTS.MAPPER_TEMP % (dao_package + CONSTANTS.POINT + dao_class_name)
     application_package = package_conf[CONSTANTS.APPLICATION_PACKAGE_KEY]
     app_package_len = len(application_package)
