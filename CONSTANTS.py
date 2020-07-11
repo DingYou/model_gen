@@ -170,3 +170,24 @@ MANAGER_IMPL_CLASS_TEMP = """import org.springframework.stereotype.Repository;
 @Repository
 public class %s extends %s<%s, %s> implements %s {
 }"""
+
+# service接口模版
+SERVICE_CLASS_TEMP = """/**
+ * %s 表
+ * @author %s create by class_gen.py
+ * @date %s
+ */
+public interface %s extends %s<%s, %s> {
+}"""
+
+# service实现类模版
+SERVICE_CLASS_TEMP = """import org.springframework.stereotype.Service;
+
+/**
+ * %s 表
+ * @author %s create by class_gen.py
+ * @date %s
+ */
+ @Service
+public class %s extends %s<%s, %s> implements %s {
+}"""
