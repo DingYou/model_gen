@@ -75,6 +75,7 @@ NEW_LINE = '\n'
 MODEL_PACKAGE_SUFFIX = '.model'
 DAO_PACKAGE_SUFFIX = '.dao'
 MANAGER_PACKAGE_SUFFIX = '.manager'
+SERVICE_PACKAGE_SUFFIX = '.service'
 IMPL_PACKAGE_SUFFIX = '.impl'
 
 # java文件后缀
@@ -82,10 +83,12 @@ JAVA_CLASS_SUFFIX = '.java'
 # xml文件后缀
 XML_FILE_SUFFIX = '.xml'
 
-# DAO名
+# DAO名后缀
 DAO_NAME_SUFFIX = 'Dao'
-# manager名
+# manager名后缀
 MANAGER_NAME_SUFFIX = 'Manager'
+# service名后缀
+SERVICE_NAME_SUFFIX = 'Service'
 # Impl名后缀
 IMPL_SUFFIX = 'Impl'
 
@@ -181,7 +184,7 @@ public interface %s extends %s<%s, %s> {
 }"""
 
 # service实现类模版
-SERVICE_CLASS_TEMP = """import org.springframework.stereotype.Service;
+SERVICE_IMPL_CLASS_TEMP = """import org.springframework.stereotype.Service;
 
 /**
  * %s 表
