@@ -1,6 +1,8 @@
 ### macOS ###
 .DS_Store
 **/.DS_Store
+### pycharm###
+.idea
 
 ### vim ###
 *.swp
