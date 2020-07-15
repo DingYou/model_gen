@@ -116,7 +116,7 @@ WORD_COMMENT_TEMP = """    /**
 
 # 类注释
 CLASS_COMMENT_TEMP = """/**
- * %s 表 
+ * %s 表 (%s)
  * @author %s create by class_gen.py
  * @date %s
  */
@@ -139,7 +139,7 @@ MODEL_CLASS_TEMP = """public class %s extends %s<%s> {
 
 # DAO类模版
 DAO_CLASS_TEMP = """/**
- * %s 表
+ * %s 表 (%s)
  * @author %s create by class_gen.py
  * @date %s
  */
@@ -155,7 +155,7 @@ MAPPER_TEMP = """<?xml version="1.0" encoding="UTF-8"?>
 
 # manager接口模板
 MANAGER_CLASS_TEMP = """/**
- * %s 表
+ * %s 表 (%s)
  * @author %s create by class_gen.py
  * @date %s
  */
@@ -166,7 +166,7 @@ public interface %s extends %s<%s> {
 MANAGER_IMPL_CLASS_TEMP = """import org.springframework.stereotype.Repository;
 
 /**
- * %s 表
+ * %s 表 (%s)
  * @author %s create by class_gen.py
  * @date %s
  */
@@ -176,7 +176,7 @@ public class %s extends %s<%s, %s> implements %s {
 
 # service接口模版
 SERVICE_CLASS_TEMP = """/**
- * %s 表
+ * %s 表 (%s)
  * @author %s create by class_gen.py
  * @date %s
  */
@@ -187,7 +187,7 @@ public interface %s extends %s<%s, %s> {
 SERVICE_IMPL_CLASS_TEMP = """import org.springframework.stereotype.Service;
 
 /**
- * %s 表
+ * %s 表 (%s)
  * @author %s create by class_gen.py
  * @date %s
  */

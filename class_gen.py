@@ -79,6 +79,7 @@ if __name__ == '__main__':
     type_conf = read_config(current_path + separate + TYPE_CONFIG_FILE)
     field_list = []
     type_list = []
+    table_comment = ''
     for line in sql_lines:
         line = line.lstrip(SPACE)
         if line.startswith(GRAVE_ACCENT):
@@ -101,6 +102,10 @@ if __name__ == '__main__':
                     _comment = _comment[1:len(_comment) - 1]
             _current_field = Field(_field_name, _field_type, _comment)
             field_list.append(_current_field)
+        elif line.startswith(RIGHT_PARENTHESES):
+            if SQL_COMMENT in line:
+                _comment = line.split(SQL_COMMENT)[1].strip(SPACE)
+                table_comment = _comment[2:len(_comment) - 1]
 
     # 各基类全类名
     base_class_conf = conf_json[BASE_CLASS_KEY]
@@ -108,7 +113,7 @@ if __name__ == '__main__':
     package_conf = conf_json[PACKAGE_KEY]
     package_path = package_conf[BASE_PACKAGE_KEY]
     # 类注释
-    class_comment = (CLASS_COMMENT_TEMP % (table_name, current_user, current_date))
+    class_comment = (CLASS_COMMENT_TEMP % (table_name, table_comment, current_user, current_date))
 
     # 组装model类
     print('生成Model...')
@@ -161,7 +166,7 @@ if __name__ == '__main__':
     dao_class += IMPORT + SPACE + base_dao + SEMICOLON + NEW_LINE
     dao_class += IMPORT + SPACE + model_package + POINT + class_name + SEMICOLON + NEW_LINE * 2
     dao_class += DAO_CLASS_TEMP % (
-        table_name, current_user, current_date, dao_class_name, base_dao.split(POINT).pop(), class_name)
+        table_name, table_comment, current_user, current_date, dao_class_name, base_dao.split(POINT).pop(), class_name)
     dao_file_path = base_java_path + separate + dao_package.replace(POINT, separate)
     if not os.path.exists(dao_file_path):
         os.makedirs(dao_file_path)
@@ -196,7 +201,7 @@ if __name__ == '__main__':
     # 导包
     manager_class += IMPORT + SPACE + base_manager + SEMICOLON + NEW_LINE
     manager_class += IMPORT + SPACE + model_package + POINT + class_name + SEMICOLON + NEW_LINE * 2
-    manager_class += MANAGER_CLASS_TEMP % (table_name, current_user, current_date, manager_class_name,
+    manager_class += MANAGER_CLASS_TEMP % (table_name, table_comment, current_user, current_date, manager_class_name,
                                            base_manager.split(POINT).pop(), class_name)
     manager_file_path = base_java_path + separate + manager_package.replace(POINT, separate)
     if not os.path.exists(manager_file_path):
@@ -218,7 +223,7 @@ if __name__ == '__main__':
     manager_impl_class += IMPORT + SPACE + dao_package + POINT + dao_class_name + SEMICOLON + NEW_LINE
     manager_impl_class += IMPORT + SPACE + manager_package + POINT + manager_class_name + SEMICOLON + NEW_LINE
     manager_impl_class += IMPORT + SPACE + model_package + POINT + class_name + SEMICOLON + NEW_LINE
-    manager_impl_class += MANAGER_IMPL_CLASS_TEMP % (table_name, current_user, current_date,
+    manager_impl_class += MANAGER_IMPL_CLASS_TEMP % (table_name, table_comment, current_user, current_date,
                                                      manager_impl_class_name,
                                                      base_manager_impl.split(POINT).pop(),
                                                      dao_class_name, class_name, manager_class_name)
@@ -239,10 +244,10 @@ if __name__ == '__main__':
     service_class = service_package_path + SEMICOLON + NEW_LINE * 2
     # 导包
     service_class += IMPORT + SPACE + base_service + SEMICOLON + NEW_LINE
-    service_class += IMPORT + SPACE + manager_package + POINT + manager_class_name + NEW_LINE
+    service_class += IMPORT + SPACE + manager_package + POINT + manager_class_name + SEMICOLON + NEW_LINE
     service_class += IMPORT + SPACE + model_package + POINT + class_name + SEMICOLON + NEW_LINE * 2
     service_class += SERVICE_CLASS_TEMP % (
-        table_name, current_user, current_date, service_class_name, base_service.split(POINT).pop(), manager_class_name,
+        table_name, table_comment, current_user, current_date, service_class_name, base_service.split(POINT).pop(), manager_class_name,
         class_name)
     service_file_path = base_java_path + separate + service_package.replace(POINT, separate)
     if not os.path.exists(service_file_path):
@@ -264,10 +269,10 @@ if __name__ == '__main__':
     service_impl_class += IMPORT + SPACE + manager_package + POINT + manager_class_name + SEMICOLON + NEW_LINE
     service_impl_class += IMPORT + SPACE + model_package + POINT + class_name + SEMICOLON + NEW_LINE
     service_impl_class += IMPORT + SPACE + service_package + POINT + service_class_name + SEMICOLON + NEW_LINE
-    service_impl_class += SERVICE_IMPL_CLASS_TEMP % (table_name, current_user, current_date,
+    service_impl_class += SERVICE_IMPL_CLASS_TEMP % (table_name, table_comment, current_user, current_date,
                                                      service_impl_class_name,
                                                      base_service_impl.split(POINT).pop(),
-                                                     manager_impl_class_name,
+                                                     manager_class_name,
                                                      class_name, service_class_name)
     service_impl_file_path = base_java_path + separate + service_impl_package.replace(POINT, separate)
     if not os.path.exists(service_impl_file_path):
