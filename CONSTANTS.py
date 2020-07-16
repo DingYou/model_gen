@@ -191,6 +191,6 @@ SERVICE_IMPL_CLASS_TEMP = """import org.springframework.stereotype.Service;
  * @author %s create by class_gen.py
  * @date %s
  */
- @Service
+@Service
 public class %s extends %s<%s, %s> implements %s {
 }"""
