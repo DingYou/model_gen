@@ -2,6 +2,7 @@
   "bigint": "Long",
   "int": "Integer",
   "tinyint": "Integer",
+  "double": "Double",
   "varchar": "String",
   "char": "String",
   "text": "String",
