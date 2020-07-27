@@ -22,20 +22,22 @@ if __name__ == '__main__':
     # 获取当前系统,根据系统确定路径分隔符
     current_system = platform.system()
     print('当前系统:', current_system)
+    python_version = platform.python_version()
+    print('当前python版本:', python_version)
     current_path = sys.path[0]
     print("当前路径:", current_path)
     separate = os.sep
     current_user = getpass.getuser()
     current_date = datetime.date.today()
 
-
     # 读取配置文件
     def read_config(conf_file_path):
         print('读取配置文件: %s' % conf_file_path)
         _conf = open(conf_file_path, encoding=DEFAULT_ENCODING)
         _conf_str = _conf.read()
-        _result = json.loads(_conf_str, encoding=DEFAULT_ENCODING)
-        return _result
+        result = json.loads(_conf_str, encoding=DEFAULT_ENCODING) if python_version[:python_version.rfind('.')] < '3.8'\
+            else json.loads(_conf_str)
+        return result
 
 
     conf_json = read_config(current_path + separate + TABLE_CONFIG_FILE)
