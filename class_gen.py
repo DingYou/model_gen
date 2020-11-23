@@ -207,11 +207,11 @@ if __name__ == '__main__':
     else:
         gen_mode = input('''
 Please input generate mode:
-0: all(model+DAO+manager+service);
+0: all(model+DAO+manager+service, default mode);
 1: only model;
 2: model+DAO+manager.
 please input 0-2:  ''')
-    gen_mode = int(gen_mode)
+    gen_mode = int(gen_mode or 0)
     print("generate mode is ", gen_mode)
 
     separate = os.sep
