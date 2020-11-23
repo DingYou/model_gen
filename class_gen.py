@@ -223,7 +223,7 @@ please input 0-2:  ''')
         print('读取配置文件: %s' % conf_file_path)
         _conf = open(conf_file_path, encoding=DEFAULT_ENCODING)
         _conf_str = _conf.read()
-        result = json.loads(_conf_str, encoding=DEFAULT_ENCODING) if python_version[:python_version.rfind('.')] < '3.8' \
+        result = json.loads(_conf_str, encoding=DEFAULT_ENCODING) if python_version[:python_version.rfind('.')] < '3.8'\
             else json.loads(_conf_str)
         return result
 
