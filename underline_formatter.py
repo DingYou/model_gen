@@ -13,7 +13,7 @@ def camel_to_underline(camel_format):
 
 def underline_to_camel(underline_format):
     """
-        下划线命名格式驼峰命名格式
+        下划线命名格式转驼峰命名格式
     """
     camel_format = ''
     if isinstance(underline_format, str):
@@ -24,7 +24,7 @@ def underline_to_camel(underline_format):
 
 def underline_to_lower_camel(underline_format):
     """
-        下划线命名格式驼峰命名格式
+        下划线命名格式转驼峰命名格式(小)
     """
     camel_format = ''
     if isinstance(underline_format, str):
